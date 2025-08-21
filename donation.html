@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Make a Donation - LAFTA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Golos+Text:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    .logo-img {
+    height: 48px;   /* ajuste la hauteur du logo */
+    width: auto;    /* garde les proportions */
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* effet hover comme avant */
+}
+  </style>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="flex items-center space-x-2 text-gray-600 hover:text-green-500 transition-colors duration-200">
+          <!-- ArrowLeft SVG -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+          <span>Go Back</span>
+        </a>
+        <div class="h-6 w-px bg-gray-300"></div>
+        <div class="flex items-center space-x-2">
+           <div class="logo">
+      <img src="src/images/logo.png" alt="LAFTA Logo" class="logo-img">
+    </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div id="main-content" class="transition-all duration-1000 opacity-100 translate-y-0">
+      <!-- Page Title -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Make a Donation
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Your generosity helps us empower seniors and strengthen communities across Africa and beyond.
+        </p>
+      </div>
+
+      <!-- Donation Form Container -->
+      <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+        <form id="donation-form" class="space-y-10">
+          <!-- Donation Amount Selection -->
+          <div class="space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800">Choose Your Donation Amount</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button type="button" class="preset-amount p-6 rounded-lg border-2 transition-all duration-300 text-left hover:shadow-lg transform hover:scale-105 border-gray-200 hover:border-green-300" data-amount="25">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-2xl font-bold text-gray-800">$25</span>
+                  <span class="p-2 rounded-full bg-gray-100 text-gray-600">🍽️</span>
+                </div>
+                <p class="text-sm text-gray-600">Provides a nutritious meal for 5 seniors</p>
+              </button>
+              <button type="button" class="preset-amount p-6 rounded-lg border-2 transition-all duration-300 text-left hover:shadow-lg transform hover:scale-105 border-gray-200 hover:border-green-300" data-amount="50">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-2xl font-bold text-gray-800">$50</span>
+                  <span class="p-2 rounded-full bg-gray-100 text-gray-600">👥</span>
+                </div>
+                <p class="text-sm text-gray-600">Supports community activities for 10 seniors</p>
+              </button>
+              <button type="button" class="preset-amount p-6 rounded-lg border-2 transition-all duration-300 text-left hover:shadow-lg transform hover:scale-105 border-gray-200 hover:border-green-300" data-amount="100">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-2xl font-bold text-gray-800">$100</span>
+                  <span class="p-2 rounded-full bg-gray-100 text-gray-600">❤️</span>
+                </div>
+                <p class="text-sm text-gray-600">Funds health services for 20 seniors</p>
+              </button>
+              <button type="button" class="preset-amount p-6 rounded-lg border-2 transition-all duration-300 text-left hover:shadow-lg transform hover:scale-105 border-gray-200 hover:border-green-300" data-amount="250">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-2xl font-bold text-gray-800">$250</span>
+                  <span class="p-2 rounded-full bg-gray-100 text-gray-600">🏠</span>
+                </div>
+                <p class="text-sm text-gray-600">Provides housing assistance for 2 families</p>
+              </button>
+            </div>
+            <!-- Custom Amount -->
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-gray-700">
+                Or enter a custom amount
+              </label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-lg">$</span>
+                <input
+                  id="custom-amount"
+                  type="number"
+                  min="1"
+                  step="0.01"
+                  placeholder="0.00"
+                  class="w-full pl-8 pr-4 py-4 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200 text-lg"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Donation Frequency -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-gray-800">Donation Frequency</h2>
+            <div class="flex space-x-4">
+              <button type="button" class="frequency-btn flex-1 py-4 px-6 rounded-lg border-2 transition-all duration-300 font-semibold border-green-500 bg-green-50 text-green-700" data-frequency="one-time">
+                One-time Donation
+              </button>
+              <button type="button" class="frequency-btn flex-1 py-4 px-6 rounded-lg border-2 transition-all duration-300 font-semibold border-gray-200 text-gray-600 hover:border-green-300" data-frequency="monthly">
+                Monthly Recurring
+              </button>
+            </div>
+          </div>
+
+          <!-- Payment Method -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-gray-800">Payment Method</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button type="button" class="payment-btn p-6 rounded-lg border-2 transition-all duration-300 flex items-center space-x-4 border-green-500 bg-green-50" data-method="card">
+                <!-- Credit Card SVG -->
+                <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                <div class="text-left">
+                  <div class="font-semibold text-gray-800">Credit/Debit Card</div>
+                  <div class="text-sm text-gray-600">Visa, Mastercard, American Express</div>
+                </div>
+              </button>
+              <button type="button" class="payment-btn p-6 rounded-lg border-2 transition-all duration-300 flex items-center space-x-4 border-gray-200 hover:border-green-300" data-method="paypal">
+                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+                  <span class="text-white font-bold text-xs">PP</span>
+                </div>
+                <div class="text-left">
+                  <div class="font-semibold text-gray-800">PayPal</div>
+                  <div class="text-sm text-gray-600">Pay with your PayPal account</div>
+                </div>
+              </button>
+            </div>
+            <!-- Security Badges -->
+            <div class="flex items-center justify-center space-x-6 pt-4">
+              <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <!-- Shield SVG -->
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>SSL Secured</span>
+              </div>
+              <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <!-- Lock SVG -->
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                <span>PCI Compliant</span>
+              </div>
+              <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <!-- Check SVG -->
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                <span>256-bit Encryption</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Donor Information -->
+          <div class="space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800">Your Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                <input type="text" required name="fullName" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter your full name"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                <input type="email" required name="email" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter your email"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                <input type="tel" name="phone" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="(Optional)"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Street Address *</label>
+                <input type="text" required name="address" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter your address"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">City *</label>
+                <input type="text" required name="city" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter your city"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">State *</label>
+                <input type="text" required name="state" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter your state"/>
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">ZIP Code *</label>
+                <input type="text" required name="zipCode" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200" placeholder="Enter ZIP code"/>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Comment or Dedication (Optional)</label>
+              <textarea name="comment" rows="4" class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-green-500 focus:outline-none transition-colors duration-200 resize-none" placeholder="Share why you're donating or dedicate this gift to someone special..."></textarea>
+            </div>
+          </div>
+
+          <!-- Donation Summary -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Donation Summary</h3>
+            <div class="space-y-2">
+              <div class="flex justify-between">
+                <span class="text-gray-600">Amount:</span>
+                <span class="font-semibold" id="summary-amount">$0.00</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-600">Frequency:</span>
+                <span class="font-semibold capitalize" id="summary-frequency">One-time</span>
+              </div>
+              <div class="border-t pt-2 mt-4">
+                <div class="flex justify-between text-lg">
+                  <span class="font-bold text-gray-800">Total:</span>
+                  <span class="font-bold text-green-600" id="summary-total">$0.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terms and Conditions -->
+          <div class="flex items-start space-x-3">
+            <input type="checkbox" id="terms" class="mt-1 w-4 h-4 text-green-600 border-gray-300 rounded focus:ring-green-500"/>
+            <label for="terms" class="text-sm text-gray-600">
+              I agree to the
+              <a href="#" class="text-green-600 hover:text-green-700 underline">Terms and Conditions</a>
+              and
+              <a href="#" class="text-green-600 hover:text-green-700 underline">Privacy Policy</a>.
+              I understand that my donation will be used to support LAFTA's mission of empowering seniors and strengthening communities.
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-btn" disabled class="w-full py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 transform bg-gray-300 text-gray-500 cursor-not-allowed">
+            Complete Donation - $0.00
+          </button>
+        </form>
+      </div>
+
+      <!-- Trust Elements -->
+      <div class="text-center mt-8 text-sm text-gray-500">
+        <p>Your donation is secure and encrypted. LAFTA is a registered 501(c)(3) nonprofit organization.</p>
+        <p class="mt-2">Tax ID: 12-3456789 | All donations are tax-deductible to the full extent allowed by law.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let selectedAmount = null;
+    let customAmount = '';
+    let frequency = 'one-time';
+    let paymentMethod = 'card';
+
+    // Elements
+    const presetBtns = document.querySelectorAll('.preset-amount');
+    const customAmountInput = document.getElementById('custom-amount');
+    const frequencyBtns = document.querySelectorAll('.frequency-btn');
+    const paymentBtns = document.querySelectorAll('.payment-btn');
+    const summaryAmount = document.getElementById('summary-amount');
+    const summaryFrequency = document.getElementById('summary-frequency');
+    const summaryTotal = document.getElementById('summary-total');
+    const termsCheckbox = document.getElementById('terms');
+    const submitBtn = document.getElementById('submit-btn');
+    const form = document.getElementById('donation-form');
+
+    function getCurrentAmount() {
+      return selectedAmount !== null ? selectedAmount : parseFloat(customAmount) || 0;
+    }
+
+    function updateSummary() {
+      const amt = getCurrentAmount();
+      summaryAmount.textContent = `$${amt.toFixed(2)}`;
+      summaryTotal.textContent = `$${amt.toFixed(2)}`;
+      summaryFrequency.textContent = frequency === 'one-time' ? 'One-time' : 'Monthly';
+      submitBtn.textContent = `Complete Donation - $${amt.toFixed(2)}`;
+      if (amt > 0 && termsCheckbox.checked) {
+        submitBtn.disabled = false;
+        submitBtn.className = "w-full py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 transform bg-orange-600 hover:bg-orange-700 text-white hover:scale-105 hover:shadow-lg";
+      } else {
+        submitBtn.disabled = true;
+        submitBtn.className = "w-full py-4 px-8 rounded-lg font-bold text-lg transition-all duration-300 transform bg-gray-300 text-gray-500 cursor-not-allowed";
+      }
+    }
+
+    presetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        presetBtns.forEach(b => b.classList.remove('border-green-500', 'bg-green-50', 'shadow-lg', 'scale-105'));
+        btn.classList.add('border-green-500', 'bg-green-50', 'shadow-lg', 'scale-105');
+        selectedAmount = parseFloat(btn.getAttribute('data-amount'));
+        customAmount = '';
+        customAmountInput.value = '';
+        updateSummary();
+      });
+    });
+
+    customAmountInput.addEventListener('input', (e) => {
+      selectedAmount = null;
+      customAmount = e.target.value;
+      presetBtns.forEach(b => b.classList.remove('border-green-500', 'bg-green-50', 'shadow-lg', 'scale-105'));
+      updateSummary();
+    });
+
+    frequencyBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        frequencyBtns.forEach(b => b.className = b.className.replace('border-green-500 bg-green-50 text-green-700', 'border-gray-200 text-gray-600 hover:border-green-300'));
+        btn.className = btn.className.replace('border-gray-200 text-gray-600 hover:border-green-300', 'border-green-500 bg-green-50 text-green-700');
+        frequency = btn.getAttribute('data-frequency');
+        updateSummary();
+      });
+    });
+
+    paymentBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        paymentBtns.forEach(b => b.classList.remove('border-green-500', 'bg-green-50'));
+        btn.classList.add('border-green-500', 'bg-green-50');
+        paymentMethod = btn.getAttribute('data-method');
+      });
+    });
+
+    termsCheckbox.addEventListener('change', updateSummary);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<div class="flex items-center justify-center space-x-2">
+        <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        <span>Processing...</span>
+      </div>`;
+      setTimeout(() => {
+        alert("Thank you for your donation! Your contribution will make a real difference in our seniors' lives.");
+        window.location.href = "index.html";
+      }, 2000);
+    });
+
+    updateSummary();
+  </script>
+</body>
+</html>
